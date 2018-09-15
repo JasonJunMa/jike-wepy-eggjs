@@ -1,0 +1,10 @@
+<template lang="wxml">
+<view class="page">            
+   
+</view>
+</template>
+<style lang="less" scoped>
+  
+</style>
+<script src="index.js">
+</script>

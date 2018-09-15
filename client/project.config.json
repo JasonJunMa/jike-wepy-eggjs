@@ -1,0 +1,13 @@
+{
+  "description": "约课用户端",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "wx27551155e8afa0e2",
+  "projectname": "yueke_c",
+  "miniprogramRoot": "./dist"
+}

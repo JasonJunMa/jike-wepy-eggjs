@@ -1,0 +1,38 @@
+<style lang="less">
+
+</style>
+
+<script>
+import wepy from 'wepy';
+import 'wepy-async-function';
+
+export default class extends wepy.app {
+    config = {
+        pages: [
+            'pages/index/index'
+        ],
+        window: {
+            navigationBarTextStyle: 'white',
+            navigationBarTitleText: 'wepy-eggjs-小程序开发解决方案',
+            navigationBarBackgroundColor: '#EFEFEF',
+            backgroundColor: '#463e4d',
+            navigationStyle: 'custom'
+        }
+    }
+
+    globalData = {
+        userInfo: null
+    }
+
+    constructor () {
+        super();
+        this.use('requestfix');
+        this.use('promisify');
+    }
+
+    onLaunch() {
+
+    }
+
+}
+</script>
