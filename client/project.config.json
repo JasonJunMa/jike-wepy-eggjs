@@ -1,5 +1,5 @@
 {
-  "description": "约课用户端",
+  "description": "A WePY project",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -7,7 +7,7 @@
     "minified": false
   },
   "compileType": "miniprogram",
-  "appid": "wx27551155e8afa0e2",
-  "projectname": "yueke_c",
+  "appid": "wx08e42eacf01761f6",
+  "projectname": "jike-ui",
   "miniprogramRoot": "./dist"
 }

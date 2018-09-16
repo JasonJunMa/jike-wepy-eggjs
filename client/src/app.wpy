@@ -1,5 +1,8 @@
 <style lang="less">
+@import "./style/fa/fa.less";
+.container {
 
+}
 </style>
 
 <script>
@@ -9,14 +12,15 @@ import 'wepy-async-function';
 export default class extends wepy.app {
     config = {
         pages: [
-            'pages/index/index'
+            'pages/index'
         ],
         window: {
-            navigationBarTextStyle: 'white',
-            navigationBarTitleText: 'wepy-eggjs-小程序开发解决方案',
-            navigationBarBackgroundColor: '#EFEFEF',
-            backgroundColor: '#463e4d',
-            navigationStyle: 'custom'
+            backgroundTextStyle: 'light',
+            navigationBarBackgroundColor: '#fff',
+            navigationBarTitleText: 'WeChat',
+            navigationBarTextStyle: 'black',
+            navigationStyle: 'custom',
+
         }
     }
 
@@ -31,7 +35,7 @@ export default class extends wepy.app {
     }
 
     onLaunch() {
-
+    // this.testAsync()
     }
 
 }

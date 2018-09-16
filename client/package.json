@@ -1,7 +1,7 @@
 {
-  "name": "yueke_c",
+  "name": "jike-ui",
   "version": "0.0.2",
-  "description": "约课用户端",
+  "description": "A WePY project",
   "main": "dist/app.js",
   "scripts": {
     "dev": "wepy build --watch",
@@ -14,11 +14,10 @@
     "module-a": false,
     "./src/components/list": "./src/components/wepy-list.wpy"
   },
-  "author": "hubbleinfo_moyuanhua <hubbleinfo_moyuanhua@git.cloud.tencent.com>",
+  "author": "541237035@qq.com",
   "license": "MIT",
   "dependencies": {
-    "fecha": "^2.3.3",
-    "wepy": "^1.6.0",
+    "wepy": "^1.7.2",
     "wepy-async-function": "^1.4.4",
     "wepy-com-toast": "^1.0.2"
   },

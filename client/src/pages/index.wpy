@@ -1,0 +1,10 @@
+<style lang="less">
+
+</style>
+<template>
+  <inaver><text slot="main">自定义标题啊大大所大大所大阿打算</text></inaver>
+</template>
+
+<script src="index.js">
+
+</script>

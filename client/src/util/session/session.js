@@ -1,9 +1,22 @@
 var Session = {
     get: function (key) {
-        return wx.getStorageSync(key) || null;
+        let res = wx.getStorageSync(key);
+        if (res) {
+            if (typeof res === 'object') {
+                if (res.expirtime > new Date().getTime()) {
+                    return res;
+                }
+            } else {
+                return res;
+            }
+
+        }
+        return null;
     },
 
     set: function (key, session) {
+        let expirtime = new Date().setDate(new Date().getDate() + 1);
+        if (typeof session === 'object') { session.expirtime = expirtime; }
         wx.setStorageSync(key, session);
     },
 
@@ -19,7 +32,7 @@ var Session = {
                 if (callback) { callback(res); };
             }
         });
-    },
+    }
 
 };
 
