@@ -40,11 +40,11 @@
     
 
 ## 多图预警
-<img src="./img/cover.png" width="300" height="" alt="封面"></img>
-<img src="./img/auth.png" width="300" height="" alt="认证"></img>
-<img src="./img/title.png" width="300" height="" alt="标题"></img>
-<img src="./img/medie.png" width="300" height="" alt="多媒体"></img>
-<img src="./img/upload.png" width="300" height="" alt="上传"></img>
-<img src="./img/video.png" width="300" height="" alt="视频"></img>
+<img src="./img/cover.png" width="250" height="" alt="封面"></img>
+<img src="./img/auth.png" width="250" height="" alt="认证"></img>
+<img src="./img/title.png" width="250" height="" alt="标题"></img>
+<img src="./img/medie.png" width="250" height="" alt="多媒体"></img>
+<img src="./img/upload.png" width="250" height="" alt="上传"></img>
+<img src="./img/video.png" width="250" height="" alt="视频"></img>
 
     
