@@ -18,19 +18,23 @@
     这些组件都已在实际项目中应用。
   
 ## 关于小程序登录与授权
+    
     其实小程序提供了大家一个较为静默的注册方式， 用户一进小程序时 我们就可以通过 wx.login 获取到code 换取用户的openid 存在数据库中，这样就等同于用户注册， 在很多地方使用用户头像等信息完全可以通过 open-data 组件实现，所以在该解决方案里面我在 app 的 onlanch() 就直接调用了用户登录  
 
 
 
-## 如何使用 如何安装
+##  如何使用 如何安装
 
-```
+### client    
     git clone 
     cd client
     npm i
     npm run dev
-    如果报错 请参照wepy官网的快速开始
-```
+    目前的体验url是使用的我自己的云服务器 在client/src/config 中的host修改
+
+### server
+    server是基于 eggjs的框架, 如果有意自己学习可以 参照eggjs 的官网 , 在server/config 目录下是server的配置， 主要用到的是 mongodb的连接 和 腾讯云 cos配置 以及小程序的appid 与 secret（用于用户授权解析）, 如果自行开发后台可参照 router.js 中对应的路由
+
     
 
 ## 多图预警
