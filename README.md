@@ -26,6 +26,7 @@
 ##  如何使用 如何安装
 
 ### client    
+
     git clone 
     cd client
     npm i
@@ -33,10 +34,11 @@
     目前的体验url是使用的我自己的云服务器 在client/src/config 中的host修改
 
 ### server
+
     server是基于 eggjs的框架, 如果有意自己学习可以 参照eggjs 的官网 , 在server/config 目录下是server的配置， 主要用到的是 mongodb的连接 和 腾讯云 cos配置 以及小程序的appid 与 secret（用于用户授权解析）, 如果自行开发后台可参照 router.js 中对应的路由
 
     
 
 ## 多图预警
-![啊哦](./img/cover.png) ![啊哦](./img/auth.png) ![啊哦](./img/title.png)
+![啊哦](./img/cover.png) ![啊哦](./img/auth.png) ![啊哦](./img/title.png) ![啊哦](./img/medie.png) ![啊哦](./img/upload.png)![啊哦](./img/video.png)
     
