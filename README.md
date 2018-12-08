@@ -40,5 +40,11 @@
     
 
 ## 多图预警
-![啊哦](./img/cover.png) ![啊哦](./img/auth.png) ![啊哦](./img/title.png) ![啊哦](./img/medie.png) ![啊哦](./img/upload.png)![啊哦](./img/video.png)
+<img src="./img/cover.png" width="300" height="" alt="封面"></img>
+<img src="./img/auth.png" width="300" height="" alt="认证"></img>
+<img src="./img/title.png" width="300" height="" alt="标题"></img>
+<img src="./img/medie.png" width="300" height="" alt="多媒体"></img>
+<img src="./img/upload.png" width="300" height="" alt="上传"></img>
+<img src="./img/video.png" width="300" height="" alt="视频"></img>
+
     
