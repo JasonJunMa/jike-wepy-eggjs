@@ -1,0 +1,71 @@
+.inaver {
+  box-sizing: border-box;
+  padding-top: 20px;
+  width: 750rpx;
+  height: 70px;
+  z-index: 5000;
+  color: black;
+ 
+}
+
+.inaverfixed{
+  top: 0;
+  left: 0;
+  position: fixed; 
+}
+
+.left {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  min-width: 100rpx;
+}
+
+.left .image {
+    width: 25px;
+    height: 25px;
+    padding: 12.5px 0 12.5px 20rpx;
+    float: left;
+}
+
+@keyframes rotating{
+  from{transform:rotate(0)}
+  to{transform:rotate(360deg)}
+}
+
+.center {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  width: 410rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 30rpx;
+}
+.center .image{
+  animation:  rotating 1.2s linear infinite;
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: -9%;
+}
+
+.right {
+  float: left;
+  width: 240rpx;
+  height: 50px;
+}
+
+.ioscenter {
+  margin-left: 140rpx;
+  text-align: center;
+  width: 270rpx;
+}
+
+.protect-inaver {
+  box-sizing: border-box;
+  width: 750rpx;
+  height: 70px;
+}

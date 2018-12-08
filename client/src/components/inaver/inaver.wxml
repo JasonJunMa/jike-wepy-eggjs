@@ -1,0 +1,21 @@
+    <view>
+        <view bindlongpress="gotop" style="background-color:{{background}}" class="inaver {{fixedtop?'inaverfixed':''}}">
+            <view class="left" catchtap="goBack" hover-class="navigator-hover">
+                <image  wx:if="{{showBack}}" class='image' mode='aspectFit' src='./icon/back_{{colorTheme}}.png'></image>
+            </view>
+            <view style="color:{{colorTheme}}" class="center {{isIOS ? 'ioscenter':''}}">
+                <!-- 自定义区域 -->
+                <!-- <text  class="fa fa-spin  fa-spinner"></text> -->
+                <image wx:if="{{isIOS && isloading}}" class='image' mode='aspectFit' src='./icon/loading_{{colorTheme}}.png'></image>{{title}}<image wx:if="{{!isIOS && isloading}}" class='image' mode='aspectFit' src='./icon/loading_{{colorTheme}}.png'></image>
+                <slot>
+                </slot>
+                <!-- <text wx:if="{{!isIOS && loading}}" class="fa fa-spin  fa-spinner"></text> -->
+            </view>
+            <view wx:if="{{protectCapsule}}" class="right">
+                <!-- 保护右上角胶囊不被污染 -->
+            </view>
+        </view>
+        <view wx:if="{{protectInaver && fixedtop}}" class="protect-inaver">
+            <!-- 占据顶部位置， 伪padding板块 -->
+        </view>
+    </view>

@@ -1,0 +1,47 @@
+<template lang="wxml">
+    <view class="text-info-content">
+            <block wx:for="{{items}}" wx:key="index">
+            <view class="item" wx:if="{{item.infoType === 'image'}}">
+                <image lazy-load="{{true}}" mode="widthFix" @tap='preViewImage({{item}})' class="image" src="{{item.content + imageView2}}"></image>
+            </view>
+            <view class="item" wx:else>
+                <text class="text">{{item.content}}</text>
+            </view>
+            </block>
+            <view @tap.stop="goweburl" wx:if="{{readmore && readmore !== ''}}" class="readmore">
+                点击查看更多
+            </view>
+    </view>
+</template>
+
+<script src="index.js">
+</script>
+
+<style lang="less">
+    @import '../../style/theme.less';
+    .text-info-content{
+        width: 750rpx;
+        padding: 0 35rpx 200rpx;
+        .item{
+            width: 680rpx;
+             padding-top: 20rpx;
+                text-align: center;
+                 font-size: 0.8em;
+                line-height: 50rpx;
+            .image{
+                width: 680rpx;
+            }
+            .text{
+               
+            }
+        }
+        .readmore{
+            width: 680rpx;
+            padding: 20rpx 0;
+            text-align: center;
+            font-size: 0.7em;
+            color: #2b85e4;
+            text-decoration: #2b85e4 underline;
+        }
+    }
+</style>

@@ -1,5 +1,25 @@
 <style lang="less">
 @import "./style/fa/fa.less";
+@import "./style/theme.less";
+ .info-cell{
+          display: flex;
+          background-color: #ffffff;
+          line-height: 100rpx;
+          .bd{
+            flex: 1;
+          }
+          padding: 0 20rpx;
+          font-size: 0.8em;
+          .ft{
+            color: @hint-color;
+          }
+          .hd{
+              .fa{
+                  font-size: 0.4em;
+                  color: @notice-color;
+              }
+          }
+        }
 .container {
 
 }
@@ -8,11 +28,20 @@
 <script>
 import wepy from 'wepy';
 import 'wepy-async-function';
+import {login} from './util/weapp-clien-sdk/login'
 
 export default class extends wepy.app {
     config = {
         pages: [
-            'pages/index'
+            'pages/index',
+            'pages/mine/index',
+            'pages/upload/index',
+
+            'pages/medias/index',
+            'pages/medias/mediaadd',
+
+            'pages/inaver/index',
+            'pages/audio/index'
         ],
         window: {
             backgroundTextStyle: 'light',
@@ -35,7 +64,10 @@ export default class extends wepy.app {
     }
 
     onLaunch() {
-    // this.testAsync()
+        // this.testAsync()
+        login().then(res => {
+
+        })
     }
 
 }

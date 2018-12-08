@@ -1,8 +1,60 @@
 <style lang="less">
+   @import "../style/theme.less";
+   .page{
+       min-height: 100vh;
+        padding-top: 70px;
+        box-sizing: border-box;
+        background-color: @background-color;
 
+        .container{
+          margin-top: 20rpx;
+        }
+
+       
+   }
 </style>
 <template>
-  <inaver><text slot="main">自定义标题啊大大所大大所大阿打算</text></inaver>
+<view class="page">
+  <inaver showBack="{{false}}" protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">ijie 小程序一站式解决方案</text></inaver>
+  <view class="container">
+    <navigator url="/pages/mine/index" open-type="navigate" hover-class="none">
+      <view class="info-cell">
+          <view class="hd">用户授权</view>
+          <view class="bd"></view>
+          <view class="ft"> <text class="fa fa-angle-right"></text> </view>
+      </view>
+    </navigator>
+     <navigator url="/pages/upload/index" open-type="navigate" hover-class="none">
+      <view class="info-cell">
+          <view class="hd">图片上传</view>
+          <view class="bd"></view>
+          <view class="ft"> <text class="fa fa-angle-right"></text> </view>
+      </view>
+    </navigator>
+     <navigator url="/pages/medias/index" open-type="navigate" hover-class="none">
+      <view class="info-cell">
+          <view class="hd">多媒体图文编辑</view>
+          <view class="bd"></view>
+          <view class="ft"> <text class="fa fa-angle-right"></text> </view>
+      </view>
+    </navigator>
+       <navigator url="/pages/inaver/index" open-type="navigate" hover-class="none">
+      <view class="info-cell">
+          <view class="hd">自定义标题栏</view>
+          <view class="bd"></view>
+          <view class="ft"> <text class="fa fa-angle-right"></text> </view>
+      </view>
+    </navigator>
+         <navigator url="/pages/audio/index" open-type="navigate" hover-class="none">
+      <view class="info-cell">
+          <view class="hd">视频悬浮播放</view>
+          <view class="bd"></view>
+          <view class="ft"> <text class="fa fa-angle-right"></text> </view>
+      </view>
+    </navigator>
+
+  </view>
+</view>
 </template>
 
 <script src="index.js">

@@ -1,0 +1,37 @@
+<style lang="less">
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vh;
+    padding-top: 70px;
+    box-sizing: border-box;
+    background-color: @background-color;
+
+      .mediacontent {
+            background-color: #ffffff;
+        }
+        .container{
+            margin-top: 20rpx;
+        }
+}
+</style>
+<template>
+<view class="page">
+    <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">图文添加与编辑</text></inaver>
+    <view class="container">
+          <view class="mediacontent">
+                <view class="info-cell">
+                    <view class="hd"><text>图文展示 <text style="" class="fa fa-asterisk"></text>: </text> </view>
+                    <view class="bd"></view>
+                    <view @tap="goaddtextInfos" class="ft"> 编辑图文 <text class="fa fa-angle-right"></text> </view>
+                </view>
+                <MediaShow :items.sync="textInfos" :readmore.sync="readmore"></MediaShow>
+                <wxc-abnor wx:if="{{textInfos.length === 0}}" button="添加图文" bind:abnortap="goaddtextInfos" title="添加图文展示更多信息" type="DATA"></wxc-abnor>
+            </view>
+    </view>
+</view>
+</template>
+
+<script src="index.js">
+
+</script>

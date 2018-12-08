@@ -1,0 +1,5 @@
+<view catch:touchmove="retrunfalse" catch:tap="videoplaywraptap" class="video-play-wrap">
+  <view catch:tap="retrunfalse">
+      <video id="{{id}}" style="top:{{top}}px;left:{{left}}px;width:{{width}}px;height:{{height}}px" class="video" autoplay="{{true}}" custom-cache="{{false}}" src="{{url}}" binderror=""></video>
+  </view>
+</view>

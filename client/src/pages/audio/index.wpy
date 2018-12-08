@@ -1,0 +1,65 @@
+<style lang="less">
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vh;
+    padding-top: 70px;
+    box-sizing: border-box;
+    background-color: @background-color;
+
+    .video-container {}
+
+    .video-container .video-poster {
+        width: 700rpx;
+        height: 400rpx;
+        margin: 25rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .video-container .video-poster .play-btn {
+        width: 100rpx;
+        height: 100rpx;
+    }
+
+    
+    .info-card {
+      background-color: #ffffff;
+      margin: 25rpx;
+      font-size: 0.7em;
+      padding: 20rpx;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+}
+</style>
+<template>
+<view class="page">
+    <inaver protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">图文添加与编辑</text></inaver>
+    <view class='info-card'>
+        <text>用于列表视频播放，提供视频播放是用户的沉浸式体验 
+        navigationBarTextStyle: 'black'
+        navigationBarTextStyle: 'white'
+        ‘white’样式会导致 安卓视频播放第一次播放不了
+  </text>
+    </view>
+    <view class='video-container'>
+        <view id='video1' class='video-poster' style='background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540186601669&di=2c4d1c448fb416b3598ed25a60935f98&imgtype=0&src=http%3A%2F%2Fcdnq.duitang.com%2Fuploads%2Fitem%2F201402%2F24%2F20140224100144_VtxcQ.thumb.700_0.jpeg)'>
+            <image data-refid="video1" bindtap='showplayerhandler' class='play-btn' src='./play.png'></image>
+        </view>
+
+        <view id='video2' class='video-poster' style='background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540186601669&di=2c4d1c448fb416b3598ed25a60935f98&imgtype=0&src=http%3A%2F%2Fcdnq.duitang.com%2Fuploads%2Fitem%2F201402%2F24%2F20140224100144_VtxcQ.thumb.700_0.jpeg)'>
+            <image data-refid="video2" bindtap='showplayerhandler' class='play-btn' src='./play.png'></image>
+        </view>
+    </view>
+    <ky-video wx:if="{{showplayer}}" url="{{playurl}}" refid="{{playid}}" bind:videoplaywraptap="videoplaywraptap"></ky-video>
+</view>
+</template>
+
+<script src="index.js">
+
+</script>

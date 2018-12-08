@@ -1,0 +1,36 @@
+<template lang="wxml">
+    <view class="UserAuth">
+           <wxc-popup locked="true" class="J_Popup" animation-mode="bottom" align="bottom">
+            <view @tap.stop='retrunfalse' class="popup-content">
+                 <i-button class="login-btn" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" loading="{{loading}}" type="success" shape="circle" size="small"> 
+                     <text class="fa fa-weixin"></text>使用微信登录
+                </i-button>
+            </view>
+        </wxc-popup>
+    </view>    
+</template>
+
+<script src="index.js">
+    
+</script>
+
+<style lang="less" scoped>
+  @import '../../style/theme.less';
+.UserAuth{
+       .J_Popup {
+        .popup-content {
+            background-color: #ffffff;
+            width: 750rpx;
+        }
+        .login-btn {
+            margin: 25rpx 0;
+            // text-align: center;
+            // border-radius: 50rpx;
+            // height: 100rpx;
+            // line-height: 100rpx;
+            // color: #ffffff;
+            // background-color: @widget-color;
+        }
+    }
+}
+</style>

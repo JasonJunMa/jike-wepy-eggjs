@@ -1,0 +1,44 @@
+<style lang="less">
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vh;
+    padding-top: 70px;
+    box-sizing: border-box;
+    background-color: @background-color;
+
+    .info-card {
+      background-color: #ffffff;
+      margin: 25rpx;
+      font-size: 0.7em;
+      padding: 20rpx;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+}
+</style>
+<template>
+<view class="page">
+    <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">授权登录</text></inaver>
+    <view class="container">
+        <view class="info-card">
+            <text>
+              本页面主要使用了 userauth 组件 , 在用户需要授权头像 用户信息的页面调用该组件
+              并把获取的用户信息缓存在本地 并且存在数据库中
+              如果需要重新出发获取
+              可以使用清理按钮清理缓存
+            </text>
+              
+        </view>
+        <view wx:if="{{userinfo !== ''}}"  class="info-card">
+           <text>{{userinfo}}</text> 
+        </view>
+    </view>
+    <i-button bind:click="handleClick" type="info">清理授权</i-button>
+    <userauth></userauth>
+</view>
+</template>
+
+<script src="index.js">
+
+</script>

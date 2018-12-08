@@ -1,0 +1,93 @@
+<template lang="wxml">
+<view class="page">
+    <inaver colorTheme="black" background="#ffffff" title="编辑图文"></inaver>
+    <view class="container">
+        <view class="input-wrap text-info">
+            <repeat for="{{textInfos}}" key="index" index="index" item="item">
+                <mediaadd class="media-add" :item.sync="item" :index.sync="index"></mediaadd>
+            </repeat>
+            <view @tap.stop='addtextinfos' class="add-area">
+                <text class="fa fa-plus"></text>
+            </view>
+        </view>
+        <view class="info-cell-wrap">
+            <view class="info-cell">
+                  <view class="hd"><text>阅读更多 : </text> </view>
+                  <view class="bd"><input  value="{{readmore}}" bindblur='onInput' placeholder-class="placeholder" placeholder="可填写公众号文章链接,展示更多内容" class="input" /></view>
+                  <view class="ft"></view>
+            </view>
+        </view>
+        <navigator url="/pages/webUrl/index?url=https://mp.weixin.qq.com/s/sntMu3dwdacbsOwuOetxnA" open-type="navigate" hover-class="none">
+     
+        </navigator>
+
+        <i-button bind:click="handleClick" type="success">保存编辑信息</i-button>
+    </view>
+</view>
+</template>
+
+<script src="mediaadd.js">
+</script>
+
+<style lang="less" scoped>
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vw;
+
+    .text-info {
+        .add-area {
+            text-align: center;
+            margin: 50rpx;
+            box-sizing: border-box;
+            height: 200rpx;
+            line-height: 200rpx;
+            color: @split-line-color;
+            border: 2px @split-line-color dashed;
+        }
+    }
+
+    .input-wrap {
+        background-color: #ffffff;
+        margin: 10rpx 0 0 0;
+        padding: 50rpx 0;
+
+        .media-add {
+            margin: 0 auto;
+        }
+
+        .input-content {
+            padding: 20rpx 20rpx;
+            display: flex;
+
+            .hd {
+                font-size: 0.8em;
+            }
+
+            .bd {
+                flex: 1;
+            }
+        }
+
+    }
+    .info-cell-wrap{
+      margin-top: 20rpx;
+      border-top: 1rpx @split-line-color solid;
+      border-bottom: 1rpx @split-line-color solid;
+      .info-cell{
+        .input{
+          line-height: 100rpx;
+          height: 100rpx;
+          text-align: right;
+        }
+      }
+    }
+    .link{
+            padding: 20rpx 0;
+            text-align: center;
+            font-size: 0.7em;
+            color: #2b85e4;
+            text-decoration: #2b85e4 underline;
+    }
+}
+</style>

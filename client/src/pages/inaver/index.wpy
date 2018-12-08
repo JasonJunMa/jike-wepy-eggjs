@@ -1,0 +1,83 @@
+<style lang="less">
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vh;
+    padding-top: 70px;
+    box-sizing: border-box;
+    background-color: @background-color;
+.content{
+  padding: 20rpx;
+  background-image: #ececec;
+  font-size: 0.8em;
+  line-height: 50rpx;
+}
+
+.ex{
+  margin: 20rpx 0;
+  border-top: 1px dashed #333
+}
+.ex-value{
+  padding: 20rpx;
+  font-size: 0.7em;
+  background-color: #efefef;
+}
+.ex .title{
+  padding:  0 20rpx;
+}
+}
+</style>
+<template>
+    <!-- <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">图文添加与编辑</text></inaver> -->
+
+<view class='page'>
+<inaver  protectInaver="{{false}}"  bind:tapBackEvent="navigateback"  title="默认置顶标题栏"  ></inaver>
+<view class='ex-value'>
+  {{ex1}}
+</view>
+<view class='content'>
+<text>
+  可能我们会需要使用沉浸式设计的时候使用到 "navigationStyle": "custom" 属性
+  这个时候小程序提供的标题栏就会失效，
+  这时候自己去定义一个标题栏就很重要的
+  该自定义组件提供和微信相同样式的标题栏
+  并且这里对返回按钮的点击事件除了可以使用默认的返回按钮之外 还提供了返回事件 自己处理返回跳转的页面
+</text>
+</view>
+
+<view class='ex' >
+  <view class='title'>
+     白色主题标题栏, 字体为黑色
+  </view>
+  <inaver title="白色主题标题栏" colorTheme="black" background="#ffffff" showBack="{{true}}" fixedtop="{{false}}" ></inaver>
+  <view class='ex-value'>
+   {{ex2}}
+  </view>
+</view>
+
+<view class='ex' >
+  <view class='title'>
+     页面加载中
+  </view>
+  <inaver title="页面加载中" isloading="{{true}}" fixedtop="{{false}}" ></inaver>
+  <view class='ex-value'>
+   {{ex3}}
+  </view>
+</view>
+
+<view class='ex' >
+  <view class='title'>
+     自定义返回事件
+  </view>
+  <inaver bind:tapBackEvent="ontabbackhandler" title="自定义返回事件"  toBack="{{false}}" fixedtop="{{false}}" ></inaver>
+  <view class='ex-value'>
+   {{ex4}}
+  </view>
+</view>
+
+</view>
+</template>
+
+<script src="index.js">
+
+</script>

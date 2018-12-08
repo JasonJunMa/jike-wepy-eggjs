@@ -1,0 +1,89 @@
+<template lang="wxml">
+    <view class="text-info-warp">
+        <view class="tool-bar">
+            <text @tap.stop="moveup" class="fa fa-chevron-circle-up up "></text>
+            <text @tap.stop="remove" class="fa fa-minus-circle"></text>
+            <text @tap.stop="movedown" class="fa fa-chevron-circle-down down"></text>
+        </view>
+        <block wx:if="{{item.infoType === 'text'}}">
+            <view  class="input-cell">
+                <view class="bd">
+                    <textarea class="weui-textarea" maxlength="{{200}}" bindblur="textInputblur" bindinput="textInput"  value="{{item.content}}"  placeholder="点我输入文本，点击删除可以删除该内容" />
+                    <view class="input-textarea-counter">{{item.content.length}}/200</view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <image @tap.stop='changeImage' mode="aspectFill" class="image" src="{{item.content + imageView2}}"></image>
+        </block>
+    
+    </view>
+</template>
+
+<script src="index.js">
+
+</script>
+
+<style lang="less" scoped>
+    @import '../../style/theme.less';
+    .text-info-warp {
+        margin: 10rpx 25rpx;
+        width: 600rpx;
+        min-height: 200rpx;
+        border: 1px dotted #000;
+        position: relative;
+        .tool-bar {
+            padding: 20rpx 0;
+            box-sizing: border-box;
+            width: 50rpx;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: absolute;
+            right: -55rpx;
+            top: 0;
+            .fa {
+                color: @notice-color;
+            }
+            .up{
+                color: @widget-color;
+            }
+            .down{
+                color:@widget-color;
+            }
+        }
+        .input-cell {
+            .bd {
+                min-height: 200rpx;
+                padding: 20rpx;
+                position: relative;
+                .weui-textarea {
+                    text-align: center;
+                    line-height: 50rpx;
+                    width: 100% !important;
+                    height: 200rpx;
+                    ;
+                }
+                .input-textarea-counter {
+                    position: absolute;
+                    bottom: 20rpx;
+                    right: 20rpx;
+                }
+            }
+        }
+        .text-info {
+            //    text-indent:30rpx;
+            text-align: center;
+            padding: 20rpx;
+            font-size: 0.8em;
+            line-height: 50rpx;
+        }
+        .image {
+            width: 600rpx;
+            height: 300rpx;
+            display: block;
+        }
+   
+    }
+</style>

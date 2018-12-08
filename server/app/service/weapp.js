@@ -6,10 +6,16 @@ const aesDecrypt = require('../util/aesDecrypt');
 
 module.exports = app => {
     class weappService extends app.Service {
-        async getSessionKey(code) {
-            const { config } = this;
+
+        /**
+       * @description 根据code获取用户的openid
+       * @param {*} postdata
+       */
+        async getSessionKey(postdata) {
+            const {code } = postdata;
+            let config  = this.app.config
             const appid =  config.weapp.appId;
-            const appsecret = config.weapp.appSecret;
+            const appsecret =  config.weapp.appSecret;
             const res = await http({
                 url: 'https://api.weixin.qq.com/sns/jscode2session',
                 method: 'GET',
@@ -27,19 +33,28 @@ module.exports = app => {
             throw new Error(res.data.errmsg);
         }
 
+        async getphoneNumber(payload) {
+            const id = this.ctx.state.user.data._id;
+            const sessionkey = await this.ctx.model.User.findOne({ _id: id }, 'session_key');
+            let decryptedData = null;
+            try {
+                decryptedData = aesDecrypt(sessionkey.session_key, payload.iv, payload.encryptedData);
+                decryptedData = JSON.parse(decryptedData);
+            } catch (e) {
+                this.ctx.helper.error('获取手机号码失败，请重试');
+            }
+            return decryptedData;
+        }
 
+        /**
+         * @description 用于鉴权 在小程序上点击授权按钮之后 能够拿到用户的信息以及 unionId
+         * @param {*} userinfo
+         * @returns
+         */
         async authorization(userinfo) {
-            // const {
-            //     'x-wx-code': code,
-            //     'x-wx-encrypted-data': encryptedData,
-            //     'x-wx-iv': iv
-            // } = req.headers
             const { encryptedData, iv } = userinfo;
-            // const seesion = await this.getSessionKey(code);
-            // const session_key = seesion.session_key;
-            // const skey = sha1(session_key);
             const { service } = this;
-            const user = await service.user.index();
+            const user = await service.user.getuserinfobyself();
             const session_key = user.session_key;
             let decryptedData;
             try {
@@ -51,20 +66,29 @@ module.exports = app => {
             return decryptedData;
         }
 
-
         async upload() {
-            // 要通过 ctx.getFileStream 便捷的获取到用户上传的文件，需要满足两个条件：
-            // 只支持上传一个文件。
-            // 上传文件必须在所有其他的 fields 后面，否则在拿到文件流时可能还获取不到 fields。
             const { service, ctx } = this;
             const res = await service.cos.uploader();
             const image = {
                 name: res.imgKey,
                 url: res.imgUrl,
-                cutUrl: app.config.weapp.imageview2 + res.imgKey,
-                extra: res
+                cutUrl: res.imgKey,
+                extra: res,
             };
             return ctx.model.Image.create(image);
+        }
+
+        async createWXAQRCode(access_token, path = 'pages/index') {
+            const url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=ACCESS_TOKEN';
+            const res = await http({
+                url,
+                method: 'post',
+                data: {
+                    access_token,
+                    path,
+                },
+            });
+            return res;
         }
     }
     return weappService;

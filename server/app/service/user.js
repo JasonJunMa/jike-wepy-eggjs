@@ -16,7 +16,7 @@ module.exports = app => {
             return this.ctx.model.User.findOne({ openid });
         }
 
-        async index() {
+        async getuserinfobyself() {
             const { ctx } = this;
             const _id = ctx.state.user.data._id;
             return ctx.model.User.findById(_id);

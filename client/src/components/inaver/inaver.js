@@ -1,79 +1,97 @@
-import wepy from 'wepy';
+
+// plugin/components/inaver/inaver.js
 import {getsysteminfo} from '../../util/api/systeminfo';
-export default class Inaver extends wepy.component {
-    props = {
+
+Component({
+  /**
+   * 组件的属性列表
+   */
+    properties: {
+        fixedtop: {
+            type: Boolean,
+            value: true
+        },
         background: {
             type: String,
-            default: 'rgba(70, 62, 77,0.9)'
+            value: 'rgba(0, 0, 0,1)'
         },
         colorTheme: {
             type: String,
-            default: 'white'
+            value: 'white'
         },
         showBack: {
             type: Boolean,
-            default: true
-        },
-        showHome: {
-            type: Boolean,
-            default: true
+            value: true
         },
         protectCapsule: {
             type: Boolean,
-            default: true
+            value: true
         },
         toBack: {
             type: Boolean,
-            default: true
-        },
-        checkCompatibility: {
-            type: Boolean,
-            default: true
-        },
-        smartBack: {
-            type: Boolean,
-            default: true
+            value: true
         },
         protectInaver: {
             type: Boolean,
-            default: true
-        }
-    }
-
-    computed = {
-        getColor: function() {
-            if (this.colorTheme === 'black') {
-                return '#000';
-            } else {
-                return '#FFF';
-            }
+            value: true
         },
-        // getSmartShowBack: function() {
-        //     return this.showBack;
-        // }
-    }
-    watch = {}
-    data = {
-        isIOS: true,
-        loading: true,
-    }
-    onLoad() {
-        let that = this;
-        getsysteminfo().then(res => {
-            console.log(res);
-            that.isIOS = res.isIOS;
-            that.$apply();
-        });
-    }
-    onReady() {
-        this.loading = false;
-    }
-    methods = {
-        goBack: function() {
-            if (this.toBack) {
-                wepy.navigateBack();
+        title: {
+            type: String,
+            value: ''
+        },
+        isloading: {
+            type: Boolean,
+            value: false
+        }
+    },
+
+  /**
+   * 组件的初始数据
+   */
+    data: {
+        isIOS: false
+    },
+
+    lifetimes: {
+        attached: function() {
+            let that = this;
+            // wx.getSystemInfo({
+            //     success: function(res) {
+            //         let isios = that.isIOS(res.system);
+            //         that.setData({
+            //             isIOS: isios
+            //         });
+            //     },
+            // });
+            getsysteminfo().then(res => {
+                that.setData({
+                    isIOS: res.isIOS
+                });
+            });
+        }
+    },
+
+  /**
+   * 组件的方法列表
+   */
+    methods: {
+        isIOS(system = 'iOS 0.0.1') {
+            system = system.toLowerCase();
+            let index = system.indexOf('ios');
+            return index >= 0;
+        },
+        goBack: function () {
+            if (this.data.toBack) {
+                wx.navigateBack({
+                    delta: 1
+                });
             }
-            this.$emit('back');
+            this.triggerEvent('tapBackEvent', {}, {});
+        },
+        gotop() {
+            wx.pageScrollTo({
+                scrollTop: 0
+            });
         }
     }
-}
+});
