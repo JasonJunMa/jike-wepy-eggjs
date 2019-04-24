@@ -1,4 +1,4 @@
-var host = 'http://118.24.143.36:7005';
+var host = 'http://127.0.0.1:7005';
 var config = {
 
     // 下面的地址配合后端 Demo 工作

@@ -3,16 +3,13 @@
 
 .page {
     min-height: 100vh;
-    padding-top: 70px;
     box-sizing: border-box;
     background-color: @background-color;
-
-  
 }
 </style>
 <template>
 <view class="page">
-    <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">图片上传</text></inaver>
+    <inaver  protectInaver="{{true}}" colorTheme="black" background="#fff"><text class="title" slot="main">图片上传</text></inaver>
     <view class="container">
       <ImageUpload title="活动封面图片" :numbers="coverlength" :showimages.sync="coverimages"></ImageUpload>
     </view>

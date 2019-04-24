@@ -1,6 +1,7 @@
 
 // plugin/components/inaver/inaver.js
 import {getsysteminfo} from '../../util/api/systeminfo';
+import { getStatusBar } from './../../util/api/systeminfo';
 
 Component({
   /**
@@ -49,23 +50,17 @@ Component({
    * 组件的初始数据
    */
     data: {
-        isIOS: false
+        isIOS: true,
+        statusbarh: 20,
+        barh: 50,
     },
 
     lifetimes: {
         attached: function() {
             let that = this;
-            // wx.getSystemInfo({
-            //     success: function(res) {
-            //         let isios = that.isIOS(res.system);
-            //         that.setData({
-            //             isIOS: isios
-            //         });
-            //     },
-            // });
-            getsysteminfo().then(res => {
+            getStatusBar().then(res => {
                 that.setData({
-                    isIOS: res.isIOS
+                    statusbarh: res
                 });
             });
         }
@@ -85,6 +80,12 @@ Component({
                 wx.navigateBack({
                     delta: 1
                 });
+                let pages = getCurrentPages();
+                if (pages.length === 1) {
+                    wx.redirectTo({
+                        url: '/pages/welcome/index'
+                    });
+                }
             }
             this.triggerEvent('tapBackEvent', {}, {});
         },

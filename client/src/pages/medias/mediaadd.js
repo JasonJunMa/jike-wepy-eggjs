@@ -147,7 +147,6 @@ export default class Index extends wepy.page {
         }
     }
     featchData() {
-
     }
     onLoad(options) {
         this.textInfos = JSON.parse(options.textInfos);

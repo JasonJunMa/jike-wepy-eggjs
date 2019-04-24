@@ -11,6 +11,14 @@ export default class MediaAdd extends wepy.component {
         index: {
             type: Number,
             default: 0
+        },
+        maxlength: {
+            type: Number,
+            default: 100
+        },
+        textlength: {
+            type: Number,
+            default: 0
         }
     }
 
@@ -24,9 +32,11 @@ export default class MediaAdd extends wepy.component {
         },
         textInput(e) {
             this.item.content = e.detail.value;
+            this.$emit('inputTextInfo');
         },
         textInputblur() {
             this.item.isEdit = false;
+            this.$emit('textInputblur', this.index);
         },
         remove() {
             let that = this;

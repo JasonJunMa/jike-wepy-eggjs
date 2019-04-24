@@ -24,7 +24,7 @@ export default class AuthIndex extends wepy.page {
         ontabbackhandler(e) {
             console.log(e);
             wx.showModal({
-                title: '点击了放回按钮',
+                title: '点击了返回按钮',
                 content: '在这个函数中你可以自定义跳转到任何地方',
             });
         },

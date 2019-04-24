@@ -6,15 +6,16 @@
             <text @tap.stop="movedown" class="fa fa-chevron-circle-down down"></text>
         </view>
         <block wx:if="{{item.infoType === 'text'}}">
-            <view  class="input-cell">
+            <view @tap="edit" class="input-cell">
                 <view class="bd">
-                    <textarea class="weui-textarea" maxlength="{{200}}" bindblur="textInputblur" bindinput="textInput"  value="{{item.content}}"  placeholder="点我输入文本，点击删除可以删除该内容" />
-                    <view class="input-textarea-counter">{{item.content.length}}/200</view>
+                    {{itme.content}}
+                    <textarea  style="height:10em" class="weui-textarea" bindblur="textInputblur" bindinput="textInput"    auto-focus="{{item.isEdit}}" focus="{{item.isEdit}}"  value="{{item.content}}" maxlength="{{maxlength}}"  placeholder="点我输入文本，点击删除可以删除该内容" />
+                    <view class="input-textarea-counter">剩余可输入 {{maxlength - textlength}}字</view>
                 </view>
             </view>
         </block>
         <block wx:else>
-            <image @tap.stop='changeImage' mode="aspectFill" class="image" src="{{item.content + imageView2}}"></image>
+            <image @tap.stop='changeImage' mode="aspectFill" class="image" src="{{item.content}}"></image>
         </block>
     
     </view>
@@ -56,19 +57,20 @@
         .input-cell {
             .bd {
                 min-height: 200rpx;
+                // max-height: 300px;
                 padding: 20rpx;
                 position: relative;
                 .weui-textarea {
                     text-align: center;
-                    line-height: 50rpx;
                     width: 100% !important;
-                    height: 200rpx;
-                    ;
+                    // height: 300px;
                 }
                 .input-textarea-counter {
                     position: absolute;
                     bottom: 20rpx;
                     right: 20rpx;
+                    font-size: 0.6em;
+                    color: @hint-color;
                 }
             }
         }

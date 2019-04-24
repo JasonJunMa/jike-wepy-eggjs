@@ -3,7 +3,6 @@
 
 .page {
     min-height: 100vh;
-    padding-top: 70px;
     box-sizing: border-box;
     background-color: @background-color;
 
@@ -19,7 +18,7 @@
 </style>
 <template>
 <view class="page">
-    <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">授权登录</text></inaver>
+    <inaver  protectInaver="{{true}}" colorTheme="black" background="#fff"><text class="title" slot="main">授权登录</text></inaver>
     <view class="container">
         <view class="info-card">
             <text>

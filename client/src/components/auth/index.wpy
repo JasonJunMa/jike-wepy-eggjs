@@ -1,27 +1,74 @@
 <template lang="wxml">
-    <view class="UserAuth">
-           <wxc-popup locked="true" class="J_Popup" animation-mode="bottom" align="bottom">
-            <view @tap.stop='retrunfalse' class="popup-content">
-                 <i-button class="login-btn" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" loading="{{loading}}" type="success" shape="circle" size="small"> 
-                     <text class="fa fa-weixin"></text>使用微信登录
-                </i-button>
+<view class="UserAuth">
+    <wxc-popup locked="true" class="J_Popup" animation-mode="center" align="center">
+        <!-- <view @tap.stop='retrunfalse' class="popup-content">
+            <i-button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" loading="{{loading}}" type="success" shape="circle" size="small">
+                <text class="fa fa-weixin"></text>使用微信登录
+            </i-button>
+        </view> -->
+
+        <view @tap.stop='retrunfalse' class="popup-content">
+            <view class="avatarUrl">
+                <open-data class="" type="userAvatarUrl" lang="zh_CN" />
             </view>
-        </wxc-popup>
-    </view>    
+            <view class="nickName">
+                <open-data type="userNickName" lang="zh_CN" />
+            </view>
+            <view class="authnotice">
+                需授权后才能继续浏览
+            </view>
+            <button class="none-btn getuserinfo" open-type="getUserInfo" bindgetuserinfo="getUserInfo"  type="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="onTap">
+                <text class="fa fa-weixin"></text>使用微信授权登录
+            </button>
+        </view>
+    </wxc-popup>
+</view>
 </template>
 
 <script src="index.js">
-    
+
 </script>
 
 <style lang="less" scoped>
-  @import '../../style/theme.less';
-.UserAuth{
-       .J_Popup {
+@import '../../style/theme.less';
+
+.UserAuth {
+    .J_Popup {
         .popup-content {
+            width: 505rpx;
+            text-align: center;
             background-color: #ffffff;
-            width: 750rpx;
+            padding-bottom: 80rpx;
+            border-radius: 50rpx;
+
+            .avatarUrl {
+                width: 100rpx;
+                height: 100rpx;
+                border-radius: 50%;
+                overflow: hidden;
+                display: inline-block;
+                margin-top: 100rpx;
+            }
+
+            .nickName {
+                color: #333;
+            }
+
+            .authnotice {
+                padding: 20rpx;
+                font-size: 0.7em;
+                color: @iview-info;
+            }
+
+            .getuserinfo {
+                line-height: 100rpx;
+                background-color: @iview-success;
+                border-radius: 50rpx !important;
+                margin: 30rpx;
+                color: #ffffff;
+            }
         }
+
         .login-btn {
             margin: 25rpx 0;
             // text-align: center;

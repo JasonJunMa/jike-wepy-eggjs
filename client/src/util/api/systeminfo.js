@@ -26,3 +26,22 @@ export function getsysteminfo() {
         });
     });
 }
+
+export function getStatusBar() {
+    return new Promise((resolve, reject) => {
+        let systeminfo = seesion.get(constants.systeminfo);
+        if (systeminfo) {
+            resolve(systeminfo.statusBarHeight);
+            return;
+        }
+        wx.getSystemInfo({
+            success: function(res) {
+                seesion.set(constants.systeminfo, res, 24);
+                resolve(res.statusBarHeight);
+            },
+            fail: function(err) {
+                reject(err);
+            }
+        });
+    });
+}

@@ -3,7 +3,6 @@
 
 .page {
     min-height: 100vh;
-    padding-top: 70px;
     box-sizing: border-box;
     background-color: @background-color;
 .content{
@@ -31,7 +30,7 @@
     <!-- <inaver  protectInaver="{{false}}" colorTheme="black" background="#fff"><text class="title" slot="main">图文添加与编辑</text></inaver> -->
 
 <view class='page'>
-<inaver  protectInaver="{{false}}"  bind:tapBackEvent="navigateback"  title="默认置顶标题栏"  ></inaver>
+<inaver  protectInaver="{{true}}"  bind:tapBackEvent="navigateback"  title="默认置顶标题栏"  ></inaver>
 <view class='ex-value'>
   {{ex1}}
 </view>

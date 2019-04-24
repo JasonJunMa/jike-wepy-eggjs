@@ -1,5 +1,5 @@
     <view>
-        <view bindlongpress="gotop" style="background-color:{{background}}" class="inaver {{fixedtop?'inaverfixed':''}}">
+        <view bindlongpress="gotop" style="background-color:{{background}};height: {{statusbarh+50}}px; padding-top:{{statusbarh}}px" class="inaver {{fixedtop?'inaverfixed':''}}">
             <view class="left" catchtap="goBack" hover-class="navigator-hover">
                 <image  wx:if="{{showBack}}" class='image' mode='aspectFit' src='./icon/back_{{colorTheme}}.png'></image>
             </view>
@@ -15,7 +15,7 @@
                 <!-- 保护右上角胶囊不被污染 -->
             </view>
         </view>
-        <view wx:if="{{protectInaver && fixedtop}}" class="protect-inaver">
+        <view wx:if="{{protectInaver && fixedtop}}" style="height: {{statusbarh+50}}px" class="protect-inaver">
             <!-- 占据顶部位置， 伪padding板块 -->
         </view>
     </view>

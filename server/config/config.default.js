@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = '';
   
   config.jwt = {
-    secret: '',
+    secret: '1234567',
     enable: true, // default is false
     match: '/jwt', // optional
   }
@@ -28,24 +28,25 @@ module.exports = appInfo => {
     },
     domainWhiteList: [],
   };
+
   config.mongoose = {
-    url: '',
+    url: 'mongodb://148.70.123.247:27017/ijike',
     options: {
       useMongoClient: true,
       autoReconnect: true,
       reconnectTries: Number.MAX_VALUE,
       bufferMaxEntries: 0,
-      user: '',
-      pass: ''
+      user: 'admin',
+      pass: 'admin@ijike'
     },
   };
 
   
   config.weapp = {
     // 微信小程序 App ID
-    appId: '',
+    appId: 'wx08e42eacf01761f6',
     // 微信小程序 App Secret
-    appSecret: '',
+    appSecret: '1c16872425ea2ccb13c07beab3d53f34',
     // 如果使用腾讯云的对象存储 请填写
     cos: {
         // 腾讯云id
