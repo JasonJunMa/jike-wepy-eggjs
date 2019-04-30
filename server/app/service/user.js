@@ -35,6 +35,12 @@ module.exports = app => {
         async getUserCertification(_id) {
             return this.ctx.model.User.findOne({ _id }, 'certification');
         }
+
+        async getopenid(id) {
+            const res = await this.ctx.model.User.findOne({ _id: id }, 'openid');
+            return res.openid;
+        }
+
     }
     return userService;
 };

@@ -41,7 +41,8 @@ export default class extends wepy.app {
             'pages/medias/mediaadd',
 
             'pages/inaver/index',
-            'pages/audio/index'
+            'pages/audio/index',
+            'pages/formbtn/index',
         ],
         window: {
             backgroundTextStyle: 'light',

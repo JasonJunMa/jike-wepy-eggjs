@@ -1,0 +1,9 @@
+<!-- 组件模板 -->
+<view class="wrapper">
+  <form bindsubmit="saveFormId" report-submit="{{true}}" class='form_class'>
+    <button style="" formType="submit" class='form_button'>
+       <slot  />
+      <!-- <input bindinput='inputAccount' placeholder-style="color:#bbbbbb" placeholder='请输入账号'></input> -->
+    </button>
+  </form>
+</view>

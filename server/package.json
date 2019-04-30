@@ -18,7 +18,9 @@
     "multiparty": "^4.1.4",
     "react-scripts": "^1.1.4",
     "read-chunk": "^2.1.0",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "tenpay": "^2.1.17",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "autod": "^3.0.1",

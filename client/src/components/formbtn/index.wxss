@@ -1,0 +1,28 @@
+/* components/component-tag-name.wxss */
+.form_class {
+  width: 100%;
+}
+
+.form_button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 1.0em;
+  line-height: 1.3;
+  border-radius: none;
+  overflow: visible;
+  
+  z-index: 0;
+  border-radius: 0 !important;
+}
+
+.form_button::after {
+  border: 0px;
+  border-radius: none !important;
+  border-radius: 0 !important;
+}
+
+.form_button::before{
+  border-radius: none !important;
+  border-radius: 0 !important;
+}

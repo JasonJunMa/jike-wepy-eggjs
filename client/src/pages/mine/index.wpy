@@ -27,7 +27,6 @@
               如果需要重新出发获取
               可以使用清理按钮清理缓存
             </text>
-              
         </view>
         <view wx:if="{{userinfo !== ''}}"  class="info-card">
            <text>{{userinfo}}</text> 

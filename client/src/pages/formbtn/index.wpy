@@ -1,0 +1,75 @@
+<style lang="less">
+@import "../../style/theme.less";
+
+.page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: @background-color;
+
+    .container {
+        margin-top: 20rpx;
+    }
+
+    .info-card {
+        background-color: #ffffff;
+        margin: 25rpx;
+        font-size: 0.7em;
+        padding: 20rpx;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+}
+</style>
+<template lang="wxml">
+<view class="page">
+    <inaver protectInaver="{{true}}" colorTheme="black" background="#fff"><text class="title" slot="main">把原生button当做view来使用</text></inaver>
+    <view class="container">
+        <view class="info-cell">
+            <view class="hd">formid</view>
+            <view class="bd"></view>
+            <view class="ft">{{formid}}</view>
+        </view>
+        <view class="info-cell">
+            <view class="hd">ref</view>
+            <view class="bd"></view>
+            <view class="ft">{{ref}}</view>
+        </view>
+        <view class="info-card">
+            <text>
+                小程序需要给用户发送模板消息, 那就就需要收集formid，
+                如何快速 优雅的收集formid
+                封装的formbtn组件，可以套在任意现有代码的外层 实现点击即可获取formid
+                点击以下任意按钮 都可以获取formid， 在开发者助手上获取的是虚拟的。
+            </text>
+        </view>
+    </view>
+
+    <formbtn bind:formbtnsubmit="tap" ref="组件外层">
+        <view class="info-cell">
+            <view class="hd">点我试试</view>
+            <view class="bd"></view>
+            <view class="ft">啊啊啊</view>
+        </view>
+    </formbtn>
+    <formbtn bind:formbtnsubmit="tap" ref="文字">
+        点我试试
+    </formbtn>
+
+    <block wx:for="{{[0,1,2,3,4,5]}}" wx:key="{{index}}">
+        <formbtn bind:formbtnsubmit="tap" ref="{{index}}">
+            <view class="ul">
+                列表{{item}}
+            </view>
+        </formbtn>
+    </block>
+    <formbtn bind:formbtnsubmit="tap" ref="图片">
+        <image src="./7417755.jpg" />
+    </formbtn>
+
+</view>
+</template>
+
+<script src="index.js">
+
+</script>
